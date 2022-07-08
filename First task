@@ -1,0 +1,11 @@
+To run a docker container. i used the following commands
+Pull the image:
+
+docker pull boxboat/hello-world-webapp
+
+Download image of a web app display hello world
+Then i started the container with the following command
+
+docker run --name fisrtcontainer -e PORT=8080 -p 8080:8080 boxboat/hello-world-webapp:latest
+
+We have up and running web app in docker container
