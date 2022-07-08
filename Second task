@@ -13,7 +13,6 @@ services:
     build: .
     ports:
       - "8080:8080"
-    env_file: .env
     depends_on:
       - db
     volumes:
@@ -26,6 +25,7 @@ services:
       
       
 If we have the image for the app
+Added env vars for external SQL Cluster
 version: '2'
 services:
   webapp:
