@@ -1,0 +1,43 @@
+Docker-compose local enviroment
+
+After we have installed docker, docker-compose should be installed also it is a feature that comes with docker
+
+Example for docker-compose file and starting container with docker compose
+Plus connecting the app to SQL Database in the Cluster
+In the .env file are written all the enviroment vars for the application
+
+If the app needs to be build
+version: '2'
+services:
+  webapp:
+    build: .
+    ports:
+      - "8080:8080"
+    env_file: .env
+    depends_on:
+      - db
+    volumes:
+      - ./webapp:/opt/webapp
+  db:
+    image: postgres:latest
+    ports:
+      - "5432:5432"
+      
+      
+      
+If we have the image for the app
+version: '2'
+services:
+  webapp:
+    image: webapp:latest
+    ports:
+      - "5000:5000"
+    env_file: .env
+    depends_on:
+      - db
+    volumes:
+      - ./webapp:/opt/webapp
+  db:
+    image: postgres:latest
+    ports:
+      - "5432:5432"
